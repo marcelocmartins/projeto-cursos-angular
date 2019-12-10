@@ -1,0 +1,33 @@
+<h2>Listagem de Alunos</h2>
+
+<table class="table table-hover">
+
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Idade</th>
+            <th>Turma</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempAlunos of alunos">
+            <td>{{ tempAlunos.id }}</td>
+            <td>{{ tempAlunos.nome }}</td>
+            <td>{{ tempAlunos.cpf }}</td>
+            <td>{{ tempAlunos.idade }}</td>
+            <td>{{ tempAlunos.turma }}</td>
+            <button>Atualizar</button>
+            <button (click)="excluirAluno(tempAlunos.id)">Excluir</button>
+        </tr>
+
+    </tbody>
+
+    <br>
+    <button [routerLink]="['/alunos/cadastro']">Cadastrar Novo Aluno</button>
+
+
+</table>
