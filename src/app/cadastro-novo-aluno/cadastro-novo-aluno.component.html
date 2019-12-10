@@ -1,0 +1,45 @@
+<form novalidate [formGroup]="salvarAlunoForm" (ngSubmit)="onSubmit()">
+    <div>
+
+        <label for="nome"><b>Nome Completo:</b></label>
+        <input type="text" placeholder="Insira seu nome" id="nome" name="nome" formControlName="nome" required>
+        <div *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+            <div *ngIf="nome.errors.required">
+                <small style="color: red;"><i>Por favor, preencha o Nome Completo, necessário ter mais de 4 digitos e
+                        sem números/caracteres especiais</i></small>
+            </div>
+            <div *ngIf="nome.errors.minlength">
+                    <small style="color: red;"><i>Name must be at least 4 characters long.</i></small>
+            </div>
+        </div>
+
+
+        <label for="cpf"><b>CPF</b></label>
+        <input type="text" placeholder="Insira seu CPF" name="cpf" formControlName="cpf" required="required">
+        <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)">
+            <div *ngIf="cpf.errors.required">
+                <small style="color: red;"><i>Por favor, preencha o CPF</i></small>
+            </div>
+        </div>
+
+        <label for="idade"><b>Idade:</b></label>
+        <br>
+        <input type="number" name="idade" min="5" max="100" formControlName="idade" required="required">
+        <div *ngIf="idade.invalid && (idade.dirty || idade.touched)">
+            <div *ngIf="idade.errors.required">
+                <small style="color: red;"><i>Por favor, preencha a idade (apenas números de 5 a 100)</i></small>
+            </div>
+        </div>
+
+        <div>
+        <label for="turmaDTO"><b>Turma</b></label>
+        <select id="turmaDTO" class="listaTurma" formControlName="turmaDTO" required="required">
+            <option value="" selected="selected">Selecione uma turma</option>
+            <option value={{turmaDTO.id}} *ngFor="let turmaDTO of turmas">{{turmaDTO.nomeTurma}}</option>
+        </select>
+    </div>
+    <hr>
+    </div>
+    <button type="submit" [disabled]="salvarAlunoForm.invalid"><b>Registrar Aluno</b></button>
+    <hr>
+</form>
