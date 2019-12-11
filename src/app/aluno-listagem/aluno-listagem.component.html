@@ -20,7 +20,7 @@
             <td>{{ tempAlunos.cpf }}</td>
             <td>{{ tempAlunos.idade }}</td>
             <td>{{ tempAlunos.turma }}</td>
-            <button>Atualizar</button>
+            <button (click)="atualizarAluno(tempAlunos.id)">Atualizar</button>
             <button (click)="excluirAluno(tempAlunos.id)">Excluir</button>
         </tr>
 

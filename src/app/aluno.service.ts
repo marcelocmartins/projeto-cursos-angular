@@ -11,6 +11,8 @@ export class AlunoService {
   public listarTurmasUrl = '/turma/turmas';
   public salvarAlunoUrl = '/alunos/aluno';
   public excluirAlunoUrl = '/alunos/aluno/';
+  public listarAlunoUnicoUrl = '/alunos/';
+  public atualizarAlunoUrl = '/alunos/aluno';
   public listarMateriasUrl = '';
 
   constructor(private http: HttpClient) { }
@@ -28,4 +30,12 @@ export class AlunoService {
     return this.http.post<any>(`${environment.urlApi + this.salvarAlunoUrl}`, aluno);
   }
 
+  listarAlunoUnico(alunoId) {
+    return this.http.get(`${environment.urlApi}${this.listarAlunoUnicoUrl}${alunoId}`);
+  }
+
+  atualizarAluno(aluno) {
+    console.log('dentro do Service' + aluno);
+    return this.http.put(`${environment.urlApi}${this.atualizarAlunoUrl}`, aluno);
+  }
 }

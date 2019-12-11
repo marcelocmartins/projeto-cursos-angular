@@ -32,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'alunos', component: AlunoListagemComponent},
-      {path: 'alunos/cadastro', component: CadastroNovoAlunoComponent}
+      {path: 'alunos/cadastro', component: CadastroNovoAlunoComponent},
+      {path: 'alunos/editar/:id', component: CadastroNovoAlunoComponent}
     ])
   ],
   providers: [
