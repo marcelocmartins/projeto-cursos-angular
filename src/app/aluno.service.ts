@@ -13,7 +13,7 @@ export class AlunoService {
   public excluirAlunoUrl = '/alunos/aluno/';
   public listarAlunoUnicoUrl = '/alunos/';
   public atualizarAlunoUrl = '/alunos/aluno';
-  public listarMateriasUrl = '';
+  public exportarBoletimUrl = '/boletim/export/';
 
   constructor(private http: HttpClient) { }
 
@@ -37,5 +37,9 @@ export class AlunoService {
   atualizarAluno(aluno) {
     console.log('dentro do Service' + aluno);
     return this.http.put(`${environment.urlApi}${this.atualizarAlunoUrl}`, aluno);
+  }
+
+  exportarBoletim(alunoId) {
+    window.open(`${environment.urlApi}${this.exportarBoletimUrl}${alunoId}`, '_blank');
   }
 }

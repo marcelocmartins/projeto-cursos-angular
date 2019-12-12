@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { CadastroNovoAlunoComponent } from './cadastro-novo-aluno/cadastro-novo-aluno.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TurmaListagemComponent } from './turma-listagem/turma-listagem.component';
+import { TurmaService } from './turma.service';
+import { CadastroNovaTurmaComponent } from './cadastro-nova-turma/cadastro-nova-turma.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenuCursosComponent,
     TopBarComponent,
     HomeComponent,
-    CadastroNovoAlunoComponent
+    CadastroNovoAlunoComponent,
+    TurmaListagemComponent,
+    CadastroNovaTurmaComponent
   ],
   imports: [
     HttpClientModule,
@@ -30,14 +35,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
+      // ALUNOS
       {path: '', component: HomeComponent},
       {path: 'alunos', component: AlunoListagemComponent},
       {path: 'alunos/cadastro', component: CadastroNovoAlunoComponent},
-      {path: 'alunos/editar/:id', component: CadastroNovoAlunoComponent}
+      {path: 'alunos/editar/:id', component: CadastroNovoAlunoComponent},
+      
+      // TURMAS
+      {path: 'turmas', component: TurmaListagemComponent},
+      {path: 'turmas/cadastro', component: CadastroNovaTurmaComponent}
     ])
   ],
   providers: [
-    AlunoService
+    AlunoService,
+    TurmaService
   ],
   bootstrap: [AppComponent]
 })

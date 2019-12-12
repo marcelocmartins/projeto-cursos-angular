@@ -24,7 +24,12 @@ export class CadastroNovoAlunoComponent implements OnInit {
     turmaDTO: null
   };
 
-  constructor(private turmaService: TurmaService, private alunoService: AlunoService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private turmaService: TurmaService, 
+    private alunoService: AlunoService, 
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute) {
 
 
     this.activatedRoute.params

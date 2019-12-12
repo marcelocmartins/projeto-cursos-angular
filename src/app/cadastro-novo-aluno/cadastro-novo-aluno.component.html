@@ -2,16 +2,12 @@
     <div>
 
         <label for="nome"><b>Nome Completo:</b></label>
-                
             <input type="text" placeholder="Insira seu nome" id="nome" name="nome" formControlName="nome" required>
             <div *ngIf="nome.invalid && (nome.dirty || nome.touched)">
                 <div *ngIf="nome.errors.required">
                     <small style="color: red;"><i>Por favor, preencha o Nome Completo, necessário ter mais de 4 digitos e
                             sem números/caracteres especiais</i></small>
                 </div>
-                <!-- <div *ngIf="nome.errors.minlength">
-                        <small style="color: red;"><i>Name must be at least 4 characters long.</i></small>
-                </div> -->
             </div>
         
 

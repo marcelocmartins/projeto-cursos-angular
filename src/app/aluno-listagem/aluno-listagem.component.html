@@ -10,6 +10,7 @@
             <th>Idade</th>
             <th>Turma</th>
             <th>Ações</th>
+            <th>Boletim</th>
         </tr>
     </thead>
 
@@ -20,8 +21,11 @@
             <td>{{ tempAlunos.cpf }}</td>
             <td>{{ tempAlunos.idade }}</td>
             <td>{{ tempAlunos.turma }}</td>
-            <button (click)="atualizarAluno(tempAlunos.id)">Atualizar</button>
-            <button (click)="excluirAluno(tempAlunos.id)">Excluir</button>
+            <td>
+                <button (click)="atualizarAluno(tempAlunos.id)">Atualizar</button>
+                <button (click)="excluirAluno(tempAlunos.id)">Excluir</button>
+            </td>
+            <td><button (click)="exportarBoletim(tempAlunos.id)" target="_blank">Exportar</button></td>
         </tr>
 
     </tbody>

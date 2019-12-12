@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
 })
 export class TurmaService {
 
-  public listarAlunosUrl = '/alunos/lista';
   public listarTurmasUrl = '/turma/turmas';
-  // public listarProfessoresUrl = '';
-  // public listarMateriasUrl = '';
+  public exluirTurmaUrl = '/turma/';
+  public atualizarTurmaUrl = '';
+  public salvarTurmaUrl = '/turma/nova-turma';
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +18,17 @@ export class TurmaService {
     return this.http.get<any[]>(`${environment.urlApi + this.listarTurmasUrl}`);
   }
 
-  excluirAluno(alunoId) {
-    // return this.http.delete(alunoId);
-    window.alert("Deletando aluno Id " + alunoId);
+  salvarTurma(turma) {
+    return this.http.post<any>(`${environment.urlApi + this.salvarTurmaUrl}`, turma);
+  }
+
+  excluirTurma(turmaId) {
+    return this.http.delete<any>(`${environment.urlApi + this.exluirTurmaUrl + turmaId}`);
+  }
+
+  atualizarTurma(turma) {
+    console.log('dentro do Service' + turma);
+    return this.http.put(`${environment.urlApi}${this.atualizarTurmaUrl}`, turma);
   }
 
 }

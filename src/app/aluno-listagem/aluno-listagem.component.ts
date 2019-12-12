@@ -27,14 +27,17 @@ export class AlunoListagemComponent implements OnInit {
     if(window.confirm('Deseja realmente excluir esse aluno ?')) {
       this.alunoService.excluirAluno(alunoId).subscribe(response => {
         this.listar();
-        console.log(response), 
+        console.log(response),  
         error => console.log(error)});
       } 
     }
 
     atualizarAluno(alunoId) {
-      // window.alert(alunoId);
       this.router.navigate(['alunos/editar', alunoId ]);
+    }
+
+    exportarBoletim(alunoId) {
+      this.alunoService.exportarBoletim(alunoId);
     }
 
 }
