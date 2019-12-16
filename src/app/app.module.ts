@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TurmaListagemComponent } from './turma-listagem/turma-listagem.component';
 import { TurmaService } from './turma.service';
 import { CadastroNovaTurmaComponent } from './cadastro-nova-turma/cadastro-nova-turma.component';
+import { ProfessorService } from './professor.service';
 
 @NgModule({
   declarations: [
@@ -43,12 +44,14 @@ import { CadastroNovaTurmaComponent } from './cadastro-nova-turma/cadastro-nova-
       
       // TURMAS
       {path: 'turmas', component: TurmaListagemComponent},
-      {path: 'turmas/cadastro', component: CadastroNovaTurmaComponent}
+      {path: 'turmas/cadastro', component: CadastroNovaTurmaComponent},
+      {path: 'turmas/editar/:id', component: CadastroNovaTurmaComponent}
     ])
   ],
   providers: [
     AlunoService,
-    TurmaService
+    TurmaService, 
+    ProfessorService
   ],
   bootstrap: [AppComponent]
 })

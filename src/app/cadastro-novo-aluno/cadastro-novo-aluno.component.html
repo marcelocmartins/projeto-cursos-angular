@@ -34,7 +34,7 @@
             <option value="" selected="selected">Selecione uma turma</option>
             <option value={{turmaDTO.id}} *ngFor="let turmaDTO of turmas">{{turmaDTO.nomeTurma}}</option>
         </select>
-    </div>
+        </div>
     <hr>
     </div>
     <button *ngIf="alunoId == null" type="submit" [disabled]="salvarAlunoForm.invalid"><b>Registrar Aluno</b></button>

@@ -8,8 +8,9 @@ import { environment } from 'src/environments/environment';
 export class TurmaService {
 
   public listarTurmasUrl = '/turma/turmas';
+  public listarTurmaUnicaUrl = '/turma/'
   public exluirTurmaUrl = '/turma/';
-  public atualizarTurmaUrl = '';
+  public atualizarTurmaUrl = '/turma/turma';
   public salvarTurmaUrl = '/turma/nova-turma';
 
   constructor(private http: HttpClient) { }
@@ -19,7 +20,12 @@ export class TurmaService {
   }
 
   salvarTurma(turma) {
+    console.log(turma)
     return this.http.post<any>(`${environment.urlApi + this.salvarTurmaUrl}`, turma);
+  }
+
+  listarTurmaUnica(turmaId) {
+    return this.http.get(`${environment.urlApi}${this.listarTurmaUnicaUrl}${turmaId}`);
   }
 
   excluirTurma(turmaId) {
