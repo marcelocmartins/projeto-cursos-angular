@@ -16,6 +16,8 @@ import { TurmaListagemComponent } from './turma-listagem/turma-listagem.componen
 import { TurmaService } from './turma.service';
 import { CadastroNovaTurmaComponent } from './cadastro-nova-turma/cadastro-nova-turma.component';
 import { ProfessorService } from './professor.service';
+import { ProfessorListagemComponent } from './professor-listagem/professor-listagem.component';
+import { CadastroNovoProfessorComponent } from './cadastro-novo-professor/cadastro-novo-professor.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ProfessorService } from './professor.service';
     HomeComponent,
     CadastroNovoAlunoComponent,
     TurmaListagemComponent,
-    CadastroNovaTurmaComponent
+    CadastroNovaTurmaComponent,
+    ProfessorListagemComponent,
+    CadastroNovoProfessorComponent
   ],
   imports: [
     HttpClientModule,
@@ -36,8 +40,11 @@ import { ProfessorService } from './professor.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      // ALUNOS
+      
+      //HOME
       {path: '', component: HomeComponent},
+
+      // ALUNOS
       {path: 'alunos', component: AlunoListagemComponent},
       {path: 'alunos/cadastro', component: CadastroNovoAlunoComponent},
       {path: 'alunos/editar/:id', component: CadastroNovoAlunoComponent},
@@ -45,7 +52,12 @@ import { ProfessorService } from './professor.service';
       // TURMAS
       {path: 'turmas', component: TurmaListagemComponent},
       {path: 'turmas/cadastro', component: CadastroNovaTurmaComponent},
-      {path: 'turmas/editar/:id', component: CadastroNovaTurmaComponent}
+      {path: 'turmas/editar/:id', component: CadastroNovaTurmaComponent},
+
+      // PROFESSORES
+      {path: 'professores', component: ProfessorListagemComponent},
+      {path: 'professores/cadastro', component: CadastroNovoProfessorComponent},
+      {path: 'professores/editar/:id', component: CadastroNovoProfessorComponent}
     ])
   ],
   providers: [
