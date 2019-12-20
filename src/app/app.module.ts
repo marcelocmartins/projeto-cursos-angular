@@ -18,6 +18,7 @@ import { CadastroNovaTurmaComponent } from './cadastro-nova-turma/cadastro-nova-
 import { ProfessorService } from './professor.service';
 import { ProfessorListagemComponent } from './professor-listagem/professor-listagem.component';
 import { CadastroNovoProfessorComponent } from './cadastro-novo-professor/cadastro-novo-professor.component';
+import { AplicarNotaBoletimComponent } from './aplicar-nota-boletim/aplicar-nota-boletim.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CadastroNovoProfessorComponent } from './cadastro-novo-professor/cadast
     TurmaListagemComponent,
     CadastroNovaTurmaComponent,
     ProfessorListagemComponent,
-    CadastroNovoProfessorComponent
+    CadastroNovoProfessorComponent,
+    AplicarNotaBoletimComponent
   ],
   imports: [
     HttpClientModule,
@@ -57,7 +59,10 @@ import { CadastroNovoProfessorComponent } from './cadastro-novo-professor/cadast
       // PROFESSORES
       {path: 'professores', component: ProfessorListagemComponent},
       {path: 'professores/cadastro', component: CadastroNovoProfessorComponent},
-      {path: 'professores/editar/:id', component: CadastroNovoProfessorComponent}
+      {path: 'professores/editar/:id', component: CadastroNovoProfessorComponent},
+
+      // BOLETIM
+      {path: 'boletim/aplicar-nota', component: AplicarNotaBoletimComponent}      
     ])
   ],
   providers: [
