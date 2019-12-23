@@ -14,6 +14,8 @@ export class AlunoService {
   public listarAlunoUnicoUrl = '/alunos/';
   public atualizarAlunoUrl = '/alunos/aluno';
   public exportarBoletimUrl = '/boletim/export/';
+  public listarAlunoPorTurmaUrl = '/alunos/turma/';
+  public aplicarNotaParaAlunoUrl = '/boletim/aplicar-nota';
 
   constructor(private http: HttpClient) { }
 
@@ -34,12 +36,20 @@ export class AlunoService {
     return this.http.get(`${environment.urlApi}${this.listarAlunoUnicoUrl}${alunoId}`);
   }
 
+  listarAlunoPorTurma(turmaId) {
+    console.log('dentro do Service e listando os alunos da turma: ' + turmaId);
+    return this.http.get<any>(`${environment.urlApi + this.listarAlunoPorTurmaUrl + turmaId}`)
+  }
+
   atualizarAluno(aluno) {
-    console.log('dentro do Service' + aluno);
     return this.http.put(`${environment.urlApi}${this.atualizarAlunoUrl}`, aluno);
   }
 
   exportarBoletim(alunoId) {
     window.open(`${environment.urlApi}${this.exportarBoletimUrl}${alunoId}`, '_blank');
+  }
+
+  aplicarNota(boletim) {
+    return this.http.post<any>(`${environment.urlApi + this.aplicarNotaParaAlunoUrl}`, boletim);
   }
 }
